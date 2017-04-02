@@ -1,6 +1,6 @@
-# STM32 Makefile FreeRTOS
+# STM32F107 Makefile FreeRTOS Network
 
-[![Build Status](https://travis-ci.org/runmec/stm32f10x_makefile_freertos.svg?branch=master)](https://travis-ci.org/runmec/stm32f10x_makefile_freertos)
+[![Build Status](https://travis-ci.org/runmec/stm32f107_makefile_freertos_network.svg?branch=master)](https://travis-ci.org/runmec/stm32f107_makefile_freertos)
 
 ## Requirement
 
