@@ -1,4 +1,4 @@
-# STM32F107 Makefile FreeRTOS Network
+# STM32F107 Makefile FreeRTOS
 
 [![Build Status](https://travis-ci.org/runmec/stm32f107_makefile_freertos.svg?branch=master)](https://travis-ci.org/runmec/stm32f107_makefile_freertos)
 
@@ -28,7 +28,7 @@ FreeRTOS Source (http://www.freertos.org)
 
 ## Example
 
-mcu: STM32F103C8T6
+mcu: STM32F107VCT6
 
-GPIOB11--Led
+GPIOE13--Led
 
