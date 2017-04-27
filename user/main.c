@@ -6,16 +6,21 @@
 #include "stm32f10x_conf.h"
 #include "FreeRTOS.h"
 #include "task.h"
-//#include "uart_log.h"
+#include "uart_log.h"
 
 void Delay(__IO uint32_t nCount)
 {
     for(; nCount != 0; nCount--);
 }
 
+void NVIC_Configuration(void)
+{
+    NVIC_PriorityGroupConfig(NVIC_PriorityGroup_4);
+}
+
 void RCC_Configuration(void)
 {
-    /* GPIOA, GPIOE clock enable */
+    /* GPIOE clock enable */
     RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOE, ENABLE);
 }
 
@@ -31,32 +36,33 @@ void GPIO_Configuration(void)
 
 void vTaskFunction(void * pvParameters)
 {
-    //Log("task 1");
+
     for (; ;) {
         GPIO_ResetBits(GPIOE, GPIO_Pin_13);
         Delay(10000000);
+        debug("test");
         GPIO_SetBits(GPIOE, GPIO_Pin_13);
         Delay(10000000);
+        debug("test");
     }
 }
 
 int main()
 {
     // init uart log
-    //uart_log_init();
+    uart_log_init();
 
+    NVIC_Configuration();
     RCC_Configuration();
     GPIO_Configuration();
 
-    //Log("start main");
+    debug("start main");
     const char* pcTextForTask1 = "Task1 is running\r\n";
 
 
     xTaskCreate(vTaskFunction, "Task 1", 1000, (void*)pcTextForTask1, 1, NULL);
 
     vTaskStartScheduler();
-
-    while (1);
 
     return 0;
 }

@@ -20,10 +20,10 @@ INCLUDE_DIRS =
 BIN_DIR      = $(ROOT_DIR)/bin
 
 # define lib dir
-LIB_DIR      = $(ROOT_DIR)/Libraries
+LIB_DIR      = $(ROOT_DIR)/stm32f10x_libraries
 
 # define freertos dir
-FREERTOS_DIR = $(ROOT_DIR)/FreeRTOS
+FREERTOS_DIR = $(ROOT_DIR)/freertos
 
 # define user dir
 USER_DIR     = $(ROOT_DIR)/user
@@ -35,10 +35,13 @@ LINK_SCRIPT  = $(ROOT_DIR)/stm32_flash.ld
 SRC       =
 ASM_SRC   =
 SRC      += $(USER_DIR)/main.c
-#SRC      += $(USER_DIR)/uart_log.c
+SRC      += $(USER_DIR)/hardware/uart_log.c
 
 # user include
 INCLUDE_DIRS  = $(USER_DIR)
+
+#user include
+INCLUDE_DIRS  +=$(USER_DIR)/hardware
 
 # include sub makefiles
 include makefile_std_lib.mk   # STM32 Standard Peripheral Library

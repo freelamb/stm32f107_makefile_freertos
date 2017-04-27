@@ -10,6 +10,14 @@ Texane stlink to flash the STM32F10x (https://github.com/texane/stlink)
 
 FreeRTOS Source (http://www.freertos.org)
 
+LWIP Source (https://savannah.nongnu.org/projects/lwip/)
+
+STM32F10x Library3.5
+
+FreeRTOS V9.0
+
+LWIP 2.0.2
+
 ## Usage
 
 ### build project
