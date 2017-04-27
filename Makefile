@@ -38,7 +38,7 @@ SRC      += $(USER_DIR)/main.c
 SRC      += $(USER_DIR)/hardware/uart_log.c
 
 # user include
-INCLUDE_DIRS  = $(USER_DIR)
+INCLUDE_DIRS  += $(USER_DIR)
 
 #user include
 INCLUDE_DIRS  +=$(USER_DIR)/hardware
