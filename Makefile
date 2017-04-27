@@ -35,6 +35,7 @@ LINK_SCRIPT  = $(ROOT_DIR)/stm32_flash.ld
 SRC       =
 ASM_SRC   =
 SRC      += $(USER_DIR)/main.c
+SRC      += $(USER_DIR)/config.c
 SRC      += $(USER_DIR)/hardware/uart_log.c
 
 # user include

@@ -7,42 +7,17 @@
 #include "FreeRTOS.h"
 #include "task.h"
 #include "uart_log.h"
-
-void Delay(__IO uint32_t nCount)
-{
-    for(; nCount != 0; nCount--);
-}
-
-void NVIC_Configuration(void)
-{
-    NVIC_PriorityGroupConfig(NVIC_PriorityGroup_4);
-}
-
-void RCC_Configuration(void)
-{
-    /* GPIOE clock enable */
-    RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOE, ENABLE);
-}
-
-void GPIO_Configuration(void)
-{
-    GPIO_InitTypeDef GPIO_InitStructure;
-
-    GPIO_InitStructure.GPIO_Pin =  GPIO_Pin_13;
-    GPIO_InitStructure.GPIO_Mode = GPIO_Mode_Out_PP;
-    GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
-    GPIO_Init(GPIOE, &GPIO_InitStructure);
-}
+#include "config.h"
 
 void vTaskFunction(void * pvParameters)
 {
 
     for (; ;) {
         GPIO_ResetBits(GPIOE, GPIO_Pin_13);
-        Delay(10000000);
+        sleep(1000);
         debug("test");
         GPIO_SetBits(GPIOE, GPIO_Pin_13);
-        Delay(10000000);
+        sleep(1000);
         debug("test");
     }
 }
