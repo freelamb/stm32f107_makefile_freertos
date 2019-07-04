@@ -227,10 +227,10 @@ int snprintf( char *buf, unsigned int count, const char *format, ... )
 // UART3 interrupt
 void USART3_IRQHandler(void)
 {
-    uint8_t data;
+    // uint8_t data;
     if (USART_GetITStatus(USART3, USART_IT_RXNE) != RESET)
     {
-        data = USART_ReceiveData(USART3);
+        // data = USART_ReceiveData(USART3);
         // add usart receive here
         // uart_receive_input(data);
 

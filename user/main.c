@@ -11,8 +11,7 @@
 
 void vTaskFunction(void * pvParameters)
 {
-
-    for (; ;) {
+    while (1) {
         GPIO_ResetBits(GPIOE, GPIO_Pin_13);
         sleep(1000);
         debug("test");
@@ -24,20 +23,17 @@ void vTaskFunction(void * pvParameters)
 
 int main()
 {
-    // init uart log
+	// init uart log
     uart_log_init();
-
+	
     NVIC_Configuration();
     RCC_Configuration();
     GPIO_Configuration();
-
+	
     debug("start main");
     const char* pcTextForTask1 = "Task1 is running\r\n";
 
-
     xTaskCreate(vTaskFunction, "Task 1", 1000, (void*)pcTextForTask1, 1, NULL);
-
     vTaskStartScheduler();
-
     return 0;
 }
